@@ -24,14 +24,13 @@ char check()
 
 void pri()
 {
-	printf("\n***********************WELCOME TO USE***********************");
-	printf("\n           |------------1 : CreateDbLinkList--------|\n");      
-	printf("           |------------2 : GetLengthDbLinkList-----|\n");
-	printf("           |------------3 : Insert------------------|\n");
-	printf("           |------------4 : DeleteList_DuL----------|\n");
-	printf("           |------------5 : DestroyList_DuL---------|\n");
-	printf("           |------------6 : TraverseList_DuL--------|\n");
-	printf("           |------------0 : exit--------------------|\n");
+	printf("\n           ||------------1 : CreateDbLinkList--------||\n");      
+	printf("           ||------------2 : GetLengthDbLinkList-----||\n");
+	printf("           ||------------3 : Insert------------------||\n");
+	printf("           ||------------4 : DeleteList_DuL----------||\n");
+	printf("           ||------------5 : DestroyList_DuL---------||\n");
+	printf("           ||------------6 : TraverseList_DuL--------||\n");
+	printf("           ||------------0 : exit--------------------||\n");
 }
 
 void land()
@@ -42,7 +41,9 @@ void land()
     DuLinkedList head;   
     head = InitList_DuL(head); 
     flag = IsEmptyDbLinkList(head);
+    printf("\n***********************WELCOME TO USE***************************");
     pri();
+    printf("(太菜只能放弃溢出检测，百度后可能要检测寄存器,学习不能好高骛远是吧(菜))\n");
 	while(1)
 	{
 		printf("Please give the number to continue:\n");

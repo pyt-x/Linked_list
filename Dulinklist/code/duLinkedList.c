@@ -24,18 +24,10 @@ int input_check()
 	{
 		v = scanf("%d",&init);
 		if(v==1)
-		{
-			if(init<2000000000 && -2000000000<init)
-			{
-				printf("给出的int数字不要超过2000000000，如果你需要录入更大的数字，联系开发者：*****\n"); 
-				break;				
-			}
-			else
-				return init;
-		}
+			return init;
 		else
 		{
-			
+			printf("请给出整数：(太菜只能放弃溢出检测，百度后可能要检测寄存器,学习还是循序渐进的好(菜))");
 			while(1)
 			{
 				char c = getchar();
@@ -153,15 +145,29 @@ DuLinkedList CreateDbLinkList(void)
             printf("内存分配失败！\n");  
             exit(1);  
         }
-        
-  		printf("请输入第%d个元素的值:", i);
-  		data = input_check();
-  		p_new->data = data;  
-        p_new->next = NULL;  
-       	p_new->pre = pTail;  
-        pTail->next = p_new;  
-       	pTail = p_new;
-  		break;
+  		while(1)
+		{
+			printf("请输入第%d个元素的值:", i);
+  			v = scanf("%d",&data);
+  			if(v==1)
+  			{
+	  			p_new->data = data;  
+	        	p_new->next = NULL;  
+	       		p_new->pre = pTail;  
+	        	pTail->next = p_new;  
+	       		pTail = p_new;
+	  			break; 				
+			}
+			else
+			{
+				while(1)
+				{
+					char c = getchar();
+					if(c == '\n')
+						break;					
+				}
+			}
+	  	}      
     }
     return pHead; 
 }
