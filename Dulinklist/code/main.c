@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../head/duLinkedList.h"
+#include "duLinkedList.h"
 #include <windows.h>
 
 char check()
@@ -25,13 +25,13 @@ char check()
 void pri()
 {
 	printf("\n***********************WELCOME TO USE***********************");
-	printf("\n                |------------1 : CreateDbLinkList--------|\n");      
-	printf("                |------------2 : GetLengthDbLinkList-----|\n");
-	printf("                |------------3 : Insert------------------|\n");
-	printf("                |------------4 : DeleteList_DuL----------|\n");
-	printf("                |------------5 : DestroyList_DuL---------|\n");
-	printf("                |------------6 : TraverseList_DuL--------|\n");
-	printf("                |------------0 : exit--------------------|\n");
+	printf("\n           |------------1 : CreateDbLinkList--------|\n");      
+	printf("           |------------2 : GetLengthDbLinkList-----|\n");
+	printf("           |------------3 : Insert------------------|\n");
+	printf("           |------------4 : DeleteList_DuL----------|\n");
+	printf("           |------------5 : DestroyList_DuL---------|\n");
+	printf("           |------------6 : TraverseList_DuL--------|\n");
+	printf("           |------------0 : exit--------------------|\n");
 }
 
 void land()
@@ -42,9 +42,9 @@ void land()
     DuLinkedList head;   
     head = InitList_DuL(head); 
     flag = IsEmptyDbLinkList(head);
+    pri();
 	while(1)
 	{
-		pri();
 		printf("Please give the number to continue:\n");
 		switch(n = check())
 		{	
@@ -56,6 +56,7 @@ void land()
 			case '2':
 					system("cls");
 					pri();
+					flag = IsEmptyDbLinkList(head);
 			    	if (flag)
        			 		printf("双向链表为空！\n");  
     				else  
@@ -81,7 +82,7 @@ void land()
         	case '4':
         			system("cls");
 					pri();
-        			flag = IsEmptyDbLinkList(head);  
+        			flag = IsEmptyDbLinkList(head);
 				    if (flag)  
 				        printf("链表为空!\n");  
 				    else
@@ -101,8 +102,8 @@ void land()
 			case '5':
 					system("cls");
 					pri();
-					DestroyList_DuL(head);  
-    				if (NULL == head)  
+					DestroyList_DuL(&head);  
+    				if (head == NULL)  
         				printf("已成功删除双向链表，释放内存完成！\n");  
     				else  
         				printf("删除双向链表失败，释放内存未完成！\n");
@@ -110,7 +111,10 @@ void land()
         	case '6':
         			system("cls");
 					pri();
-        			TraverseList_DuL(head);
+					if(head == NULL)
+						printf("Please Create!\n");
+					else
+        				TraverseList_DuL(head);
         			break;
         	case '0':
         			system("cls");

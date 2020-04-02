@@ -1,4 +1,4 @@
-#include "../head/duLinkedList.h"
+#include "duLinkedList.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -24,16 +24,16 @@ DuLinkedList InitList_DuL(DuLinkedList L) {
  *	@return		 : status
  *  @notice      : None
  */
-void DestroyList_DuL(DuLinkedList L) {
+void DestroyList_DuL(DuLinkedList *L) {
 	DuLinkedList pt = NULL;
-    while (L != NULL)  
-    {  
-        pt = L->next;  
-        free(L);  
-        if (NULL != pt)  
-            pt->pre = NULL;  
-        L = pt;  
-    }  
+	while (*L != NULL)
+	{
+		pt = (*L)->next;
+		free(*L);
+		if (NULL != pt)
+			pt->pre = NULL;
+		*L = pt;
+	}
 }
 
 int GetLengthDbLinkList(DuLinkedList L)  
@@ -60,9 +60,9 @@ int IsEmptyDbLinkList(DuLinkedList L)
 {  
     DuLinkedList pt = L->next;  
     if (pt == NULL)  
-        return 0;  
-    else  
         return 1;  
+    else  
+        return 0;  
 }  
  
 int InsertList_DuL(DuLinkedList L, int pos, int data) {
@@ -223,5 +223,5 @@ void TraverseList_DuL(DuLinkedList L) {
 	    putchar('\n');	
 	}
 	else
-		printf("Пе");
+		printf("Пе\n");
 }

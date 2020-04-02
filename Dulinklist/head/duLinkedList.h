@@ -68,7 +68,7 @@ DuLinkedList CreateDbLinkList(void);
  *	@return		 : status
  *  @notice      : None
  */
-void DestroyList_DuL(DuLinkedList L);
+void DestroyList_DuL(DuLinkedList *L);
 
 /**
  *  @name        : Status InsertBeforeList_DuL(DuLNode *p, LNode *q)
