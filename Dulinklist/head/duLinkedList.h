@@ -44,7 +44,8 @@ typedef enum Status {
 } Status;
 
 int IsEmptyDbLinkList(DuLinkedList L);
-int GetLengthDbLinkList(DuLinkedList L); 
+int GetLengthDbLinkList(DuLinkedList L);
+int input_check();  
 
 /**************************************************************
 *	Prototype Declare Section

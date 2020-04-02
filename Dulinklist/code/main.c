@@ -56,47 +56,63 @@ void land()
 			case '2':
 					system("cls");
 					pri();
-					flag = IsEmptyDbLinkList(head);
-			    	if (flag)
-       			 		printf("双向链表为空！\n");  
-    				else  
-    				{  
-       					length = GetLengthDbLinkList(head);  
-        				printf("双向链表的长度为：%d\n", length);
-    				}
+					if(head == NULL)
+						printf("Please Create!\n");
+					else
+					{
+						flag = IsEmptyDbLinkList(head);
+				    	if (flag)
+	       			 		printf("双向链表为空！\n");  
+	    				else  
+	    				{  
+	       					length = GetLengthDbLinkList(head);  
+	        				printf("双向链表的长度为：%d\n", length);
+	    				}						
+					}
     				break;
     		case '3':
     				system("cls");
 					pri();
-    				printf("请输入要插入节点的位置和元素值(用空格隔开)：");  
-    				scanf("%d %d", &position, &value);  
-    				flag = InsertList_DuL(head, position, value);
-    				if (flag)  
-    				{  
-        				printf("插入节点成功！\n");  
-    				    TraverseList_DuL(head);  
-    				}
-    				else  
-        				printf("插入节点失败！请检查是否创建链表\n");
-					break; 
+					if(head == NULL)
+						printf("Please Create!\n");
+					else
+					{
+						printf("请输入要插入节点的位置和元素值(用空格隔开)：");
+						position = input_check();
+						value = input_check();  
+    					flag = InsertList_DuL(head, position, value);
+    					if (flag)  
+    					{  
+        					printf("插入节点成功！\n");  
+    				    	TraverseList_DuL(head);  
+    					}
+    					else  
+        					printf("插入节点失败！请检查是否创建链表\n"); 	
+					}
+					break;
         	case '4':
         			system("cls");
 					pri();
-        			flag = IsEmptyDbLinkList(head);
-				    if (flag)  
-				        printf("链表为空!\n");  
-				    else
-				    {  
-				        printf("请输入要删除节点的位置：");  
-				        scanf("%d", &position);  
-				        flag = DeleteList_DuL(head, position);  
-				        if (flag)  
-				        {  
-				            printf("删除节点成功！\n");  
-				            TraverseList_DuL(head);  
-				        }     
-			        	else  
-			            	printf("删除节点失败！\n");  
+					if(head == NULL)
+						printf("Please Create!\n");
+					else
+					{
+	        			flag = IsEmptyDbLinkList(head);
+					    if (flag)  
+					        printf("链表为空!\n");  
+					    else
+					    {  
+					        printf("请输入要删除节点的位置："); 
+							position = input_check();  
+					        flag = DeleteList_DuL(head, position);  
+					        if (flag)  
+					        {  
+					            printf("删除节点成功！\n");  
+					            TraverseList_DuL(head);  
+					        }     
+				        	else  
+				            	printf("删除节点失败！\n");  
+						}					
 					} 
 					break;  
 			case '5':

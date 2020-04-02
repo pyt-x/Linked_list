@@ -17,6 +17,34 @@ DuLinkedList InitList_DuL(DuLinkedList L) {
     return node;
 }
 
+int input_check()
+{
+	int v,init;
+	while(1)
+	{
+		v = scanf("%d",&init);
+		if(v==1)
+		{
+			if(init<2000000000 && -2000000000<init)
+			{
+				printf("给出的int数字不要超过2000000000，如果你需要录入更大的数字，联系开发者：*****\n"); 
+				break;				
+			}
+			else
+				return init;
+		}
+		else
+		{
+			
+			while(1)
+			{
+				char c = getchar();
+				if(c == '\n')
+					break;
+			}			
+		}
+	}
+}
 /**
  *  @name        : void DestroyList_DuL(DuLinkedList *L)
  *	@description : destroy a linked list
@@ -114,17 +142,7 @@ DuLinkedList CreateDbLinkList(void)
     pTail = pHead;  
   
     printf("请输入想要创建链表的长度：");
-	while(1)
-	{
-	   	v = scanf("%d", &length);
-		if(v==1)
-			break;
-		else
-		{
-			printf("Please give a valid number");
-			break;
-		}	
-	}
+	length = input_check();
 			
     for (i=1; i<length+1; i++)  
     {  
@@ -136,30 +154,14 @@ DuLinkedList CreateDbLinkList(void)
             exit(1);  
         }
         
-  		while(1)
-  		{
-  			printf("请输入第%d个元素的值:", i);
-  			v = scanf("%d", &data);
-  			if(v==1)
-  			{
-  			  	p_new->data = data;  
-        		p_new->next = NULL;  
-        		p_new->pre = pTail;  
-        		pTail->next = p_new;  
-        		pTail = p_new;
-  				break;	
-			}
-  			else
-  			{	
-  				printf("哼哼，老夫掐指一算你输入的不是整数是吧！\n");
-				while(1)
-				{
-					char c = getchar();
-					if(c == '\n')
-						break;
-				}
-			}
-		}
+  		printf("请输入第%d个元素的值:", i);
+  		data = input_check();
+  		p_new->data = data;  
+        p_new->next = NULL;  
+       	p_new->pre = pTail;  
+        pTail->next = p_new;  
+       	pTail = p_new;
+  		break;
     }
     return pHead; 
 }
@@ -217,7 +219,7 @@ void TraverseList_DuL(DuLinkedList L) {
 	{
 	    while (pt != NULL)  
 	    {  
-	        printf("%d ", pt->data);  
+	        printf("[%d] ", pt->data);  
 	        pt = pt->next;  
 	    }
 	    putchar('\n');	
@@ -225,3 +227,5 @@ void TraverseList_DuL(DuLinkedList L) {
 	else
 		printf("空\n");
 }
+
+
